@@ -47,7 +47,7 @@
                                             <div>
                                                 <!-- Show only the first few permissions -->
                                                 @foreach(array_slice($permissions, 0, 3) as $permission)
-                                                    <span class="inline-flex items-center rounded-md bg-indigo-50 px-2 py-1 text-xs font-medium text-indigo-700 ring-1 ring-inset ring-indigo-700/10">{{ $permission }}</span>
+                                                    <span class="inline-flex items-center rounded-md bg-green-50 px-2 py-1 text-xs font-medium text-green-700 ring-1 ring-inset ring-green-700/10">{{ $permission }}</span>
                                                 @endforeach
                                                 {{-- <!-- Indicate that the user can click to show all -->
                                                 <span class="text-indigo-600 text-xs underline mt-1">... (click to see all)</span> --}}
@@ -72,7 +72,7 @@
                                     <div x-data="{ isModalOpen: false, permissionArray: [] }">
                                         <button
                                         @click="isModalOpen = true; permissionArray = {{ json_encode($user->role->permission_array) }}"
-                                        class="px-4 py-2 text-sm font-medium leading-5 text-white transition-colors duration-150 bg-purple-600 border border-transparent rounded-lg active:bg-purple-600 hover:bg-purple-700 focus:outline-none focus:shadow-outline-purple"
+                                        class="px-4 py-2 text-sm font-medium leading-5 text-white transition-colors duration-150 bg-green-600 border border-transparent rounded-lg active:bg-green-600 hover:bg-green-700 focus:outline-none focus:shadow-outline-green"
                                         >
                                         Edit
                                         </button>
@@ -128,7 +128,7 @@
                                                         class="px-4 py-2 text-sm font-medium text-gray-700 bg-gray-100 rounded-lg dark:bg-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-600">
                                                         Cancel
                                                     </button>
-                                                    <button type="submit" class="px-4 py-2 text-sm font-medium text-white bg-purple-600 rounded-lg hover:bg-purple-700">
+                                                    <button type="submit" class="px-4 py-2 text-sm font-medium text-white bg-green-600 rounded-lg hover:bg-green-700">
                                                         Accept
                                                     </button>
                                                 </footer>

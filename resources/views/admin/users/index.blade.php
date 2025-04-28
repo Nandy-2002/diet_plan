@@ -165,7 +165,7 @@
                 </div>
             
                 <button type="submit" 
-                    class="text-white bg-purple-700 hover:bg-purple-800 focus:ring-4 focus:outline-none focus:ring-purple-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-purple-600 dark:hover:bg-purple-700 dark:focus:ring-purple-800 mt-4">
+                    class="text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:outline-none focus:ring-green-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800 mt-4">
                     Add User
                 </button>
             </form>
@@ -178,7 +178,7 @@
                 <div>
                     <label class="text-sm text-gray-600">Show 
                         <select name="myTable_length" aria-controls="myTable"
-                                class="rounded border-gray-300 focus:border-purple-500 focus:ring focus:ring-purple-200 focus:ring-opacity-50">
+                                class="rounded border-gray-300 focus:border-green-500 focus:ring focus:ring-green-200 focus:ring-opacity-50">
                             <option value="10">10</option>
                             <option value="25">25</option>
                             <option value="50">50</option>
@@ -214,7 +214,7 @@
                                         <form action="{{ route('admin.users.edit', $user) }}" method="GET" class="inline">
                                             <button
                                                 type="submit"
-                                                class="flex items-center justify-center px-3 py-2 text-sm font-medium leading-5 text-white transition-colors duration-150 bg-purple-600 border border-transparent rounded-full active:bg-purple-600 hover:bg-purple-700 focus:outline-none focus:shadow-outline-purple"
+                                                class="flex items-center justify-center px-3 py-2 text-sm font-medium leading-5 text-white transition-colors duration-150 bg-green-600 border border-transparent rounded-full active:bg-green-600 hover:bg-green-700 focus:outline-none focus:shadow-outline-green"
                                                 aria-label="Edit"
                                             >
                                                 <i class="fas fa-pen"></i>
