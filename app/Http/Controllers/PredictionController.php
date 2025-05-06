@@ -377,4 +377,33 @@ class PredictionController extends Controller
         ]);
     }
 
+    public function overallStats()
+    {
+        $meals = MealTracker::select('meal_type', 'food')
+            ->groupBy('meal_type', 'food')
+            ->get();
+
+        $data = [];
+
+        foreach ($meals as $meal) {
+            $usersUsing = MealTracker::where('meal_type', $meal->meal_type)
+                                ->where('food', $meal->food)
+                                ->count();
+
+            $usersCompleted = MealTracker::where('meal_type', $meal->meal_type)
+                                ->where('food', $meal->food)
+                                ->where('is_finished', true)
+                                ->count();
+
+            $data[] = [
+                'meal_type' => $meal->meal_type,
+                'food' => $meal->food,
+                'users_using' => $usersUsing,
+                'users_completed' => $usersCompleted,
+            ];
+        }
+
+        return response()->json($data);
+    }
+
 }

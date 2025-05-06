@@ -60,6 +60,7 @@ Route::middleware(['auth'])->group(function () {
         Route::get('/tracker', [PredictionController::class, 'tracker'])->name('admin.tracker');
         Route::put('/mealtracker/{meal}/update', [PredictionController::class, 'update'])->name('admin.mealtracker.update');
         Route::get('/mealtracker/weekly-stats', [PredictionController::class, 'weeklyStats'])->name('admin.mealtracker.weeklyStats');
+        Route::get('/mealtracker/overall-stats', [PredictionController::class, 'overallStats'])->name('admin.mealtracker.overallStats');
     });
 
 });

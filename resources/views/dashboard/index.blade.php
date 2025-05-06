@@ -42,6 +42,55 @@
         <p id="health-tip" class="text-gray-700 mt-2">Loading health tip...</p>
       </div>
 
+      <h3 class="text-xl font-semibold mb-2 mt-10">Overall Meal Usage & Completion</h3>
+      <canvas id="overallMealChart" height="100"></canvas>
+
+      <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+      <script>
+      document.addEventListener("DOMContentLoaded", function () {
+          const overallCtx = document.getElementById('overallMealChart').getContext('2d');
+
+          fetch("{{ route('admin.mealtracker.overallStats') }}")
+              .then(res => res.json())
+              .then(data => {
+                  const labels = data.map(item => `${item.meal_type}: ${item.food}`);
+                  const usersUsing = data.map(item => item.users_using);
+                  const usersCompleted = data.map(item => item.users_completed);
+
+                  new Chart(overallCtx, {
+                      type: 'bar',
+                      data: {
+                          labels: labels,
+                          datasets: [
+                              {
+                                  label: 'Users Using This Meal',
+                                  data: usersUsing,
+                                  backgroundColor: '#fbbf24',
+                              },
+                              {
+                                  label: 'Users Completed',
+                                  data: usersCompleted,
+                                  backgroundColor: '#10b981',
+                              }
+                          ]
+                      },
+                      options: {
+                          responsive: true,
+                          indexAxis: 'y',
+                          scales: {
+                              x: {
+                                  beginAtZero: true,
+                                  ticks: {
+                                      precision: 0
+                                  }
+                              }
+                          }
+                      }
+                  });
+              });
+      });
+      </script>
+
       <script>
         document.addEventListener("DOMContentLoaded", function() {
           // Fetch random advice from the Advice Slip API
