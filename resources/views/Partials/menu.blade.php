@@ -74,4 +74,16 @@
         </ul>
     @endif
 
+    @if (hasPermission('prdections'))
+        <ul>
+            <li class="relative px-6 py-3" @click="activeLink = 'prdections'">
+                <span x-show="activeLink === 'prdections' || '{{ request()->routeIs('admin.tracker') }}'" class="absolute inset-y-0 left-0 w-1 bg-green-600 rounded-tr-lg rounded-br-lg" aria-hidden="true"></span>
+                <a :class="{'text-gray-800 dark:text-white': activeLink === 'prdections' || '{{ request()->routeIs('admin.tracker') }}'}" class="inline-flex items-center w-full text-sm font-semibold transition-colors duration-150 hover:text-gray-800 dark:hover:text-white" href="{{ route('admin.tracker') }}">
+                    <i class="fas fa-calendar-week w-5 h-5" aria-hidden="true"></i> <!-- Updated Icon for 'Weekly Predict' -->
+                    <span class="ml-4">Meal tracker</span>
+                </a>
+            </li>
+        </ul>
+    @endif
+
 </div>

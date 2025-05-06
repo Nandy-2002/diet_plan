@@ -56,4 +56,10 @@ Route::middleware(['auth'])->group(function () {
         Route::get('/collab', [PredictionController::class, 'collab'])->name('admin.collab');
     });
 
+    Route::middleware(CheckPermissions::class . ':prdections')->group(function () {
+        Route::get('/tracker', [PredictionController::class, 'tracker'])->name('admin.tracker');
+        Route::put('/mealtracker/{meal}/update', [PredictionController::class, 'update'])->name('admin.mealtracker.update');
+        Route::get('/mealtracker/weekly-stats', [PredictionController::class, 'weeklyStats'])->name('admin.mealtracker.weeklyStats');
+    });
+
 });
